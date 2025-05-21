@@ -1,0 +1,1647 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Autentke - Joias Elegantes em Prata 925</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #1d1d1d;
+      --secondary: #fff8f1;
+      --accent: #8b5e3c;
+      --accent-hover: #7a502f;
+      --text: #333;
+      --light-gray: #f5f5f5;
+      --medium-gray: #e0e0e0;
+      --dark-gray: #888;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--secondary);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* Header e navegação */
+    header {
+      background-color: var(--primary);
+      color: white;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: white;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 1.5rem;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Hero section */
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') center/cover no-repeat;
+      height: 500px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      padding: 0 1rem;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--accent);
+      color: white;
+      padding: 0.7rem 1.5rem;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background-color 0.3s, transform 0.2s;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background-color: var(--accent-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      border: 2px solid var(--accent);
+      color: var(--accent);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--accent);
+      color: white;
+    }
+
+    /* Categorias */
+    .categorias {
+      padding: 3rem 0;
+      text-align: center;
+    }
+
+    .categorias h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .categorias h2::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: var(--accent);
+    }
+
+    .categoria-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .categoria-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      height: 200px;
+      transition: transform 0.3s;
+    }
+
+    .categoria-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .categoria-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+
+    .categoria-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .categoria-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 100%);
+      display: flex;
+      align-items: flex-end;
+      padding: 1rem;
+    }
+
+    .categoria-overlay h3 {
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    /* Catálogo de produtos - Carrossel */
+    .catalogo {
+      padding: 3rem 0;
+      background-color: white;
+      position: relative;
+    }
+
+    .catalogo-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .catalogo-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+    }
+
+    .filtros {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .filtro-btn {
+      background-color: var(--light-gray);
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: background-color 0.3s;
+    }
+
+    .filtro-btn:hover, .filtro-btn.ativo {
+      background-color: var(--accent);
+      color: white;
+    }
+
+    .produto-carrossel {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      gap: 2rem;
+      padding: 1rem 0.5rem 2rem;
+    }
+
+    .produto-carrossel::-webkit-scrollbar {
+      display: none;
+    }
+
+    .produto {
+      scroll-snap-align: start;
+      min-width: 280px;
+      flex: 0 0 280px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .produto:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    .produto-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: var(--accent);
+      color: white;
+      padding: 0.3rem 0.7rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .produto-img-container {
+      position: relative;
+      overflow: hidden;
+      height: 280px;
+    }
+
+    .produto img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+
+    .produto:hover img {
+      transform: scale(1.05);
+    }
+
+    .produto-actions {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(0,0,0,0.7);
+      display: flex;
+      opacity: 0;
+      transform: translateY(100%);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+
+    .produto:hover .produto-actions {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .produto-action-btn {
+      flex: 1;
+      background: none;
+      border: none;
+      color: white;
+      padding: 0.7rem;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s;
+    }
+
+    .produto-action-btn:hover {
+      background-color: rgba(139, 94, 60, 0.8);
+    }
+
+    .produto-info {
+      padding: 1.2rem;
+    }
+
+    .produto-info h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .produto-categoria {
+      color: var(--dark-gray);
+      font-size: 0.85rem;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .produto-preco {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1rem;
+    }
+
+    .preco-principal {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--accent);
+    }
+
+    .preco-parcelado {
+      font-size: 0.8rem;
+      color: var(--dark-gray);
+    }
+
+    .stars {
+      color: gold;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    /* Controles do carrossel */
+    .carrossel-controle {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      background-color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      cursor: pointer;
+      z-index: 10;
+      opacity: 0.8;
+      transition: opacity 0.3s;
+    }
+
+    .carrossel-controle:hover {
+      opacity: 1;
+    }
+
+    .carrossel-anterior {
+      left: 10px;
+    }
+
+    .carrossel-proximo {
+      right: 10px;
+    }
+
+    .carrossel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .carrossel-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: var(--medium-gray);
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .carrossel-dot.ativo {
+      background-color: var(--accent);
+    }
+
+    /* Depoimentos */
+    .depoimentos {
+      padding: 4rem 0;
+      background-color: var(--light-gray);
+      text-align: center;
+    }
+
+    .depoimentos h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 3rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .depoimentos h2::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: var(--accent);
+    }
+
+    .depoimentos-slider {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      gap: 2rem;
+      padding: 1rem 0.5rem 2rem;
+    }
+
+    .depoimentos-slider::-webkit-scrollbar {
+      display: none;
+    }
+
+    .depoimento {
+      scroll-snap-align: start;
+      min-width: 300px;
+      flex: 0 0 300px;
+      background-color: white;
+      border-radius: 8px;
+      padding: 2rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      position: relative;
+    }
+
+    .depoimento-quote {
+      font-size: 4rem;
+      position: absolute;
+      top: -20px;
+      left: 20px;
+      color: rgba(139, 94, 60, 0.1);
+      font-family: serif;
+    }
+
+    .depoimento-texto {
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+
+    .depoimento-autor {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .depoimento-autor img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 1rem;
+    }
+
+    .depoimento-autor-info h4 {
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    .depoimento-autor-info p {
+      font-size: 0.8rem;
+      color: var(--dark-gray);
+      margin: 0;
+    }
+
+    .depoimento-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 2rem;
+    }
+
+    .depoimento-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: var(--medium-gray);
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .depoimento-dot.ativo {
+      background-color: var(--accent);
+    }
+
+    /* Newsletter */
+    .newsletter {
+      padding: 4rem 0;
+      background-color: var(--primary);
+      color: white;
+      text-align: center;
+    }
+
+    .newsletter h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .newsletter p {
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .newsletter-form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+    }
+
+    .newsletter-input {
+      flex: 1;
+      padding: 0.8rem 1rem;
+      border: none;
+      border-radius: 4px 0 0 4px;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .newsletter-btn {
+      background-color: var(--accent);
+      color: white;
+      border: none;
+      padding: 0 1.5rem;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
+
+    .newsletter-btn:hover {
+      background-color: var(--accent-hover);
+    }
+
+    /* Vantagens */
+    .vantagens {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      padding: 3rem 0;
+      background-color: white;
+    }
+
+    .vantagem {
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .vantagem-icon {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .vantagem h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .vantagem p {
+      font-size: 0.9rem;
+      color: var(--dark-gray);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--primary);
+      color: white;
+      padding: 4rem 0 2rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-col h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 0.8rem;
+    }
+
+    .footer-col h3::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background-color: var(--accent);
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    .contato-info {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .contato-info i {
+      margin-right: 0.8rem;
+      color: var(--accent);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      border-radius: 50%;
+      transition: background-color 0.3s;
+    }
+
+    .social-link:hover {
+      background-color: var(--accent);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* Carrinho */
+    .carrinho-toggle {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      margin-left: 1.5rem;
+      position: relative;
+    }
+
+    .carrinho-icon {
+      font-size: 1.2rem;
+      margin-right: 0.5rem;
+    }
+
+    .carrinho-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background-color: var(--accent);
+      color: white;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: bold;
+    }
+
+    .carrinho {
+      position: fixed;
+      right: -400px;
+      top: 0;
+      height: 100%;
+      width: 350px;
+      background: white;
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+      transition: right 0.3s ease-in-out;
+      z-index: 200;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .carrinho.ativo {
+      right: 0;
+    }
+
+    .carrinho-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem;
+      border-bottom: 1px solid var(--medium-gray);
+    }
+
+    .carrinho-header h2 {
+      margin: 0;
+      font-size: 1.3rem;
+    }
+
+    .fechar-carrinho {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: var(--dark-gray);
+    }
+
+    .carrinho-itens {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1rem;
+    }
+
+    .carrinho-vazio {
+      text-align: center;
+      padding: 2rem;
+      color: var(--dark-gray);
+    }
+
+    .carrinho-item {
+      display: flex;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--medium-gray);
+    }
+
+    .carrinho-item-img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 4px;
+      margin-right: 1rem;
+    }
+
+    .carrinho-item-detalhes {
+      flex: 1;
+    }
+
+    .carrinho-item-nome {
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .carrinho-item-preco {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .carrinho-item-quantidade {
+      display: flex;
+      align-items: center;
+      margin-top: 0.5rem;
+    }
+
+    .qtd-btn {
+      width: 25px;
+      height: 25px;
+      background-color: var(--light-gray);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+
+    .qtd-valor {
+      width: 30px;
+      text-align: center;
+      margin: 0 0.5rem;
+    }
+
+    .carrinho-item-remover {
+      color: #f44336;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 0.8rem;
+      margin-top: 0.5rem;
+      padding: 0;
+      text-decoration: underline;
+    }
+
+    .carrinho-footer {
+      border-top: 1px solid var(--medium-gray);
+      padding: 1.5rem;
+    }
+
+    .carrinho-subtotal {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .carrinho-subtotal-valor {
+      color: var(--accent);
+    }
+
+    .carrinho-btn {
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    /* Overlay quando o carrinho está aberto */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 150;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .overlay.ativo {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    /* Voltar ao topo */
+    .voltar-topo {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      background-color: var(--accent);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+      z-index: 90;
+    }
+
+    .voltar-topo.visivel {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Responsividade */
+    @media (max-width: 992px) {
+      .categoria-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        position: fixed;
+        top: 0;
+        right: -300px;
+        height: 100%;
+        width: 250px;
+        background-color: var(--primary);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 5rem 1.5rem;
+        transition: right 0.3s;
+        z-index: 100;
+      }
+
+      nav.ativo {
+        right: 0;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+      }
+
+      nav a {
+        margin: 0 0 1.5rem 0;
+        font-size: 1.1rem;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+        z-index: 101;
+      }
+
+      .carrinho-toggle {
+        margin-right: 1rem;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .depoimento {
+        min-width: 250px;
+        flex: 0 0 250px;
+      }
+
+      .carrossel-controle {
+        display: none;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .categoria-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .carrinho {
+        width: 300px;
+      }
+
+      .produto {
+        min-width: 220px;
+        flex: 0 0 220px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-container">
+      <a href="#" class="logo">Autentke</a>
+      <button class="mobile-menu-btn" id="menuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav id="mainNav">
+        <a href="#"><i class="fas fa-home"></i> Início</a>
+        <a href="#catalogo"><i class="fas fa-gem"></i> Ver Catálogo</a>
+        <a href="#depoimentos"><i class="fas fa-star"></i> Depoimentos</a>
+        <a href="#contato"><i class="fas fa-envelope"></i> Contato</a>
+        <div class="carrinho-toggle" onclick="toggleCarrinho()">
+          <i class="fas fa-shopping-cart carrinho-icon"></i>
+          <span>Carrinho</span>
+          <span class="carrinho-count" id="carrinhoCount">0</span>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Joias Elegantes em Prata 925</h1>
+    <p>Descubra nossa coleção exclusiva de peças autênticas para todos os momentos</p>
+    <a href="#catalogo" class="btn">Ver Catálogo</a>
+  </section>
+
+  <section class="categorias container">
+    <h2>Nossas Categorias</h2>
+    <div class="categoria-grid">
+      <div class="categoria-card">
+        <img src="https://images.unsplash.com/photo-1603974372035-9d5cbf3c6815?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Pulseiras">
+        <div class="categoria-overlay">
+          <h3>Pulseiras</h3>
+        </div>
+      </div>
+      <div class="categoria-card">
+        <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Aneis">
+        <div class="categoria-overlay">
+          <h3>Brincos</h3>
+        </div>
+      </div>
+      <div class="categoria-card">
+        <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Brincos">
+        <div class="categoria-overlay">
+          <h3>Colares</h3>
+        </div>
+      </div>
+      <div class="text-center" style="margin-top: 2rem;">
+        <a href="#catalogo" class="btn">Ver Mais Produtos</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="depoimentos" id="depoimentos">
+    <div class="container">
+      <h2>O Que Nossos Clientes Dizem</h2>
+      <div class="depoimentos-slider" id="depoimentosSlider">
+        <div class="depoimento">
+          <div class="depoimento-quote">"</div>
+          <p class="depoimento-texto">As joias da Autentke são simplesmente maravilhosas! Uso minha pulseira todos os dias e sempre recebo elogios. A qualidade é excelente e o atendimento foi impecável.</p>
+          <div class="depoimento-autor">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Cliente">
+            <div class="depoimento-autor-info">
+              <h4>Ana Silva</h4>
+              <p>Cliente desde 2023</p>
+            </div>
+          </div>
+        </div>
+        <div class="depoimento">
+          <div class="depoimento-quote">"</div>
+          <p class="depoimento-texto">Comprei um conjunto de brincos e colar para presentear minha esposa e ela adorou! O acabamento é perfeito e a embalagem muito elegante. Com certeza voltarei a comprar.</p>
+          <div class="depoimento-autor">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Cliente">
+            <div class="depoimento-autor-info">
+              <h4>Carlos Mendes</h4>
+              <p>Cliente desde 2024</p>
+            </div>
+          </div>
+        </div>
+        <div class="depoimento">
+          <div class="depoimento-quote">"</div>
+          <p class="depoimento-texto">Descobri a Autentke através de uma amiga e já fiz várias compras. As peças são lindas, duráveis e o preço é justo. O envio é rápido e a equipe super atenciosa!</p>
+          <div class="depoimento-autor">
+            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Cliente">
+            <div class="depoimento-autor-info">
+              <h4>Juliana Costa</h4>
+              <p>Cliente desde 2022</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="depoimento-dots">
+        <span class="depoimento-dot ativo" onclick="mudarDepoimento(0)"></span>
+        <span class="depoimento-dot" onclick="mudarDepoimento(1)"></span>
+        <span class="depoimento-dot" onclick="mudarDepoimento(2)"></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter">
+    <div class="container">
+      <h2>Fique por Dentro das Novidades</h2>
+      <p>Cadastre-se para receber ofertas exclusivas, lançamentos e dicas de como cuidar das suas joias.</p>
+      <form class="newsletter-form">
+        <input type="email" class="newsletter-input" placeholder="Seu melhor e-mail" required>
+        <button type="submit" class="newsletter-btn">Assinar</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="vantagens container">
+    <div class="vantagem">
+      <div class="vantagem-icon">
+        <i class="fas fa-truck"></i>
+      </div>
+      <h3>Entrega Rápida</h3>
+      <p>Enviamos para todo o Brasil com rastreamento</p>
+    </div>
+    <div class="vantagem">
+      <div class="vantagem-icon">
+        <i class="fas fa-shield-alt"></i>
+      </div>
+      <h3>Prata 925</h3>
+      <p>Garantia de autenticidade em todas as peças</p>
+    </div>
+    <div class="vantagem">
+      <div class="vantagem-icon">
+        <i class="fas fa-credit-card"></i>
+      </div>
+      <h3>Pagamento Seguro</h3>
+      <p>Parcele em até 3x sem juros</p>
+    </div>
+    <div class="vantagem">
+      <div class="vantagem-icon">
+        <i class="fas fa-exchange-alt"></i>
+      </div>
+      <h3>Troca Garantida</h3>
+      <p>7 dias para troca ou devolução</p>
+    </div>
+  </section>
+
+  <section class="catalogo" id="catalogo">
+    <div class="container">
+      <div class="catalogo-header">
+        <h2>Nossos Produtos</h2>
+        <div class="filtros">
+          <button class="filtro-btn ativo">Todos</button>
+          <button class="filtro-btn">Pulseiras</button>
+          <button class="filtro-btn">Brincos</button>
+          <button class="filtro-btn">Colares</button>
+        </div>
+      </div>
+      
+      <div class="produto-carrossel" id="produtoCarrossel">
+        <div class="produto">
+          <span class="produto-badge">Destaque</span>
+          <div class="produto-img-container">
+            <img src="https://images.unsplash.com/photo-1603974372035-9d5cbf3c6815?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Pulseira Van Cleef">
+            <div class="produto-actions">
+              <button class="produto-action-btn" onclick="adicionarCarrinho('Pulseira Van Cleef', 35.96, 'https://images.unsplash.com/photo-1603974372035-9d5cbf3c6815?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')">
+                <i class="fas fa-shopping-cart"></i>
+              </button>
+              <button class="produto-action-btn">
+                <i class="fas fa-heart"></i>
+              </button>
+              <button class="produto-action-btn">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+          </div>
+          <div class="produto-info">
+            <span class="produto-categoria">Pulseiras</span>
+            <h3>Pulseira Van Cleef</h3>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+            <div class="produto-preco">
+              <span class="preco-principal">R$ 35,96</span>
+              <span class="preco-parcelado">3x de R$ 11,99</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="produto">
+          <div class="produto-img-container">
+            <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Brinco Lua 35mm">
+            <div class="produto-actions">
+              <button class="produto-action-btn" onclick="adicionarCarrinho('Brinco Lua 35mm', 20.40, 'https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')">
+                <i class="fas fa-shopping-cart"></i>
+              </button>
+              <button class="produto-action-btn">
+                <i class="fas fa-heart"></i>
+              </button>
+              <button class="produto-action-btn">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+          </div>
+          <div class="produto-info">
+            <span class="produto-categoria">Brincos</span>
+            <h3>Brinco Lua 35mm</h3>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+            <div class="produto-preco">
+              <span class="preco-principal">R$ 20,40</span>
+              <span class="preco-parcelado">3x de R$ 6,80</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="produto">
+          <span class="produto-badge">Novo</span>
+          <div class="produto-img-container">
+            <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Colar Coração">
+            <div class="produto-actions">
+              <button class="produto-action-btn" onclick="adicionarCarrinho('Colar Coração', 42.90, 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')">
+                <i class="fas fa-shopping-cart"></i>
+              </button>
+              <button class="produto-action-btn">
+                <i class="fas fa-heart"></i>
+              </button>
+              <button class="produto-action-btn">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+          </div>
+          <div class="produto-info">
+            <span class="produto-categoria">Colares</span>
+            <h3>Colar Coração</h3>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <div class="produto-preco">
+              <span class="preco-principal">R$ 42,90</span>
+              <span class="preco-parcelado">3x de R$ 14,30</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="produto">
+          <div class="produto-img-container">
+            <img src="https://images.unsplash.com/photo-1603974372035-9d5cbf3c6815?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Anel Solitário">
+            <div class="produto-actions">
+              <button class="produto-action-btn" onclick="adicionarCarrinho('Anel Solitário', 28.50, 'https://images.unsplash.com/photo-1603974372035-9d5cbf3c6815?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')">
+                <i class="fas fa-shopping-cart"></i>
+              </button>
+              <button class="produto-action-btn">
+                <i class="fas fa-heart"></i>
+              </button>
+              <button class="produto-action-btn">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+          </div>
+          <div class="produto-info">
+            <span class="produto-categoria">Anéis</span>
+            <h3>Anel Solitário</h3>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <i class="far fa-star"></i>
+            </div>
+            <div class="produto-preco">
+              <span class="preco-principal">R$ 28,50</span>
+              <span class="preco-parcelado">3x de R$ 9,50</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="produto">
+          <span class="produto-badge">Promoção</span>
+          <div class="produto-img-container">
+            <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Conjunto Prata">
+            <div class="produto-actions">
+              <button class="produto-action-btn" onclick="adicionarCarrinho('Conjunto Prata', 65.90, 'https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')">
+                <i class="fas fa-shopping-cart"></i>
+              </button>
+              <button class="produto-action-btn">
+                <i class="fas fa-heart"></i>
+              </button>
+              <button class="produto-action-btn">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+          </div>
+          <div class="produto-info">
+            <span class="produto-categoria">Conjuntos</span>
+            <h3>Conjunto Prata</h3>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+            <div class="produto-preco">
+              <span class="preco-principal">R$ 65,90</span>
+              <span class="preco-parcelado">3x de R$ 21,97</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="carrossel-dots" id="carrosselDots">
+        <!-- Os pontos serão gerados dinamicamente pelo JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <footer id="contato">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>Autentke</h3>
+          <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 1rem;">Joias elegantes em prata 925 para todos os momentos especiais da sua vida.</p>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-pinterest"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h3>Links Úteis</h3>
+          <ul class="footer-links">
+            <li><a href="#">Sobre Nós</a></li>
+            <li><a href="#">Política de Privacidade</a></li>
+            <li><a href="#">Termos de Serviço</a></li>
+            <li><a href="#">Trocas e Devoluções</a></li>
+            <li><a href="#">Perguntas Frequentes</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Minha Conta</h3>
+          <ul class="footer-links">
+            <li><a href="#">Minha Conta</a></li>
+            <li><a href="#">Meus Pedidos</a></li>
+            <li><a href="#">Lista de Desejos</a></li>
+            <li><a href="#">Rastrear Pedido</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Contato</h3>
+          <div class="contato-info">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Rua das Joias, 123 - São Paulo/SP</span>
+          </div>
+          <div class="contato-info">
+            <i class="fas fa-phone-alt"></i>
+            <span>(11) 98765-4321</span>
+          </div>
+          <div class="contato-info">
+            <i class="fas fa-envelope"></i>
+            <span>contato@autentke.com.br</span>
+          </div>
+          <div class="contato-info">
+            <i class="fas fa-clock"></i>
+            <span>Seg-Sex: 9h-18h | Sáb: 9h-13h</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 Autentke. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Carrinho de compras -->
+  <div class="overlay" id="overlay"></div>
+  <div class="carrinho" id="carrinho">
+    <div class="carrinho-header">
+      <h2>Seu Carrinho</h2>
+      <button class="fechar-carrinho" onclick="toggleCarrinho()">&times;</button>
+    </div>
+    <div class="carrinho-itens" id="carrinhoItens">
+      <div class="carrinho-vazio">
+        <p>Seu carrinho está vazio</p>
+        <a href="#catalogo" class="btn" onclick="toggleCarrinho()">Continuar Comprando</a>
+      </div>
+    </div>
+    <div class="carrinho-footer">
+      <div class="carrinho-subtotal">
+        <span>Subtotal:</span>
+        <span class="carrinho-subtotal-valor" id="carrinhoSubtotal">R$ 0,00</span>
+      </div>
+      <a href="#" class="btn carrinho-btn" onclick="finalizarCompra()">Finalizar Compra</a>
+      <a href="#catalogo" class="btn btn-outline carrinho-btn" onclick="toggleCarrinho()">Continuar Comprando</a>
+    </div>
+  </div>
+
+  <!-- Botão voltar ao topo -->
+  <div class="voltar-topo" id="voltarTopo" onclick="voltarAoTopo()">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <script>
+    // Menu mobile
+    const menuBtn = document.getElementById('menuBtn');
+    const mainNav = document.getElementById('mainNav');
+    
+    menuBtn.addEventListener('click', () => {
+      mainNav.classList.toggle('ativo');
+      menuBtn.innerHTML = mainNav.classList.contains('ativo') ? 
+        '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+    });
+
+    // Carrinho de compras
+    const carrinho = document.getElementById('carrinho');
+    const overlay = document.getElementById('overlay');
+    const carrinhoItens = document.getElementById('carrinhoItens');
+    const carrinhoCount = document.getElementById('carrinhoCount');
+    const carrinhoSubtotal = document.getElementById('carrinhoSubtotal');
+    
+    let itensCarrinho = [];
+    
+    function toggleCarrinho() {
+      carrinho.classList.toggle('ativo');
+      overlay.classList.toggle('ativo');
+      document.body.style.overflow = carrinho.classList.contains('ativo') ? 'hidden' : 'auto';
+    }
+    
+    function adicionarCarrinho(nome, preco, imagem) {
+      const itemExistente = itensCarrinho.find(item => item.nome === nome);
+      
+      if (itemExistente) {
+        itemExistente.quantidade++;
+      } else {
+        itensCarrinho.push({
+          nome,
+          preco,
+          imagem,
+          quantidade: 1
+        });
+      }
+      
+      atualizarCarrinho();
+      toggleCarrinho();
+    }
+    
+    function atualizarCarrinho() {
+      if (itensCarrinho.length === 0) {
+        carrinhoItens.innerHTML = `
+          <div class="carrinho-vazio">
+            <p>Seu carrinho está vazio</p>
+            <a href="#catalogo" class="btn" onclick="toggleCarrinho()">Continuar Comprando</a>
+          </div>
+        `;
+      } else {
+        carrinhoItens.innerHTML = '';
+        let subtotal = 0;
+        
+        itensCarrinho.forEach(item => {
+          subtotal += item.preco * item.quantidade;
+          
+          const itemElement = document.createElement('div');
+          itemElement.className = 'carrinho-item';
+          itemElement.innerHTML = `
+            <img src="${item.imagem}" alt="${item.nome}" class="carrinho-item-img">
+            <div class="carrinho-item-detalhes">
+              <div class="carrinho-item-nome">${item.nome}</div>
+              <div class="carrinho-item-preco">R$ ${item.preco.toFixed(2)}</div>
+              <div class="carrinho-item-quantidade">
+                <button class="qtd-btn" onclick="alterarQuantidade('${item.nome}', -1)">-</button>
+                <span class="qtd-valor">${item.quantidade}</span>
+                <button class="qtd-btn" onclick="alterarQuantidade('${item.nome}', 1)">+</button>
+              </div>
+              <button class="carrinho-item-remover" onclick="removerItem('${item.nome}')">Remover</button>
+            </div>
+          `;
+          carrinhoItens.appendChild(itemElement);
+        });
+      }
+      
+      carrinhoCount.textContent = itensCarrinho.reduce((total, item) => total + item.quantidade, 0);
+      carrinhoSubtotal.textContent = `R$ ${itensCarrinho.reduce((total, item) => total + (item.preco * item.quantidade), 0).toFixed(2)}`;
+    }
+    
+    function alterarQuantidade(nome, mudanca) {
+      const item = itensCarrinho.find(item => item.nome === nome);
+      
+      if (item) {
+        item.quantidade += mudanca;
+        
+        if (item.quantidade < 1) {
+          itensCarrinho = itensCarrinho.filter(i => i.nome !== nome);
+        }
+        
+        atualizarCarrinho();
+      }
+    }
+    
+    function removerItem(nome) {
+      itensCarrinho = itensCarrinho.filter(item => item.nome !== nome);
+      atualizarCarrinho();
+    }
+
+    // Finalizar compra via WhatsApp
+    function finalizarCompra() {
+      if (itensCarrinho.length === 0) {
+        alert('Seu carrinho está vazio!');
+        return;
+      }
+
+      // Formatar mensagem para o WhatsApp
+      let mensagem = 'Olá, gostaria de fazer um pedido:\n\n';
+      let total = 0;
+      
+      itensCarrinho.forEach(item => {
+        const itemTotal = item.preco * item.quantidade;
+        total += itemTotal;
+        mensagem += `- ${item.nome} (${item.quantidade}x): R$ ${itemTotal.toFixed(2)}\n`;
+      });
+      
+      mensagem += `\n*Total: R$ ${total.toFixed(2)}*\n\n`;
+      mensagem += 'Meus dados:\n';
+      mensagem += 'Nome: [INFORMAR NOME COMPLETO]\n';
+      mensagem += 'Endereço: [INFORMAR ENDEREÇO COMPLETO]\n';
+      mensagem += 'Forma de pagamento: [INFORMAR PAGAMENTO]\n\n';
+      mensagem += 'Por favor, confirme o pedido. Obrigado!';
+      
+      // Codificar a mensagem para URL
+      const mensagemCodificada = encodeURIComponent(mensagem);
+      
+      // Número de telefone da loja (substitua pelo número real)
+      const telefoneLoja = '5511987654321'; // Exemplo: (11) 98765-4321
+      
+      // Redirecionar para o WhatsApp
+      window.open(`https://wa.me/${telefoneLoja}?text=${mensagemCodificada}`, '_blank');
+      
+      // Limpar carrinho após redirecionamento
+      itensCarrinho = [];
+      atualizarCarrinho();
+    }
+
+    // Depoimentos slider
+    function mudarDepoimento(index) {
+      const slider = document.getElementById('depoimentosSlider');
+      const dots = document.querySelectorAll('.depoimento-dot');
+      
+      slider.scrollTo({
+        left: index * 320,
+        behavior: 'smooth'
+      });
+      
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('ativo', i === index);
+      });
+    }
+
+    // Carrossel de produtos
+    const produtoCarrossel = document.getElementById('produtoCarrossel');
+    const carrosselDots = document.getElementById('carrosselDots');
+    const produtos = document.querySelectorAll('.produto');
+    
+    // Criar pontos de navegação do carrossel
+    produtos.forEach((_, index) => {
+      const dot = document.createElement('span');
+      dot.className = 'carrossel-dot';
+      dot.onclick = () => rolarParaProduto(index);
+      carrosselDots.appendChild(dot);
+    });
+    
+    // Atualizar ponto ativo quando o carrossel é rolado
+    produtoCarrossel.addEventListener('scroll', () => {
+      const dots = document.querySelectorAll('.carrossel-dot');
+      const scrollPosition = produtoCarrossel.scrollLeft;
+      const itemWidth = produtos[0].offsetWidth + 32; // Largura do item + gap
+      const activeIndex = Math.round(scrollPosition / itemWidth);
+      
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('ativo', index === activeIndex);
+      });
+    });
+    
+    // Rolar para um produto específico
+    function rolarParaProduto(index) {
+      const itemWidth = produtos[0].offsetWidth + 32; // Largura do item + gap
+      produtoCarrossel.scrollTo({
+        left: index * itemWidth,
+        behavior: 'smooth'
+      });
+    }
+    
+    // Configurar o primeiro ponto como ativo inicialmente
+    document.querySelector('.carrossel-dot').classList.add('ativo');
+
+    // Botão voltar ao topo
+    window.addEventListener('scroll', () => {
+      const voltarTopo = document.getElementById('voltarTopo');
+      if (window.pageYOffset > 300) {
+        voltarTopo.classList.add('visivel');
+      } else {
+        voltarTopo.classList.remove('visivel');
+      }
+    });
+
+    function voltarAoTopo() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+
+    // Filtros de produtos
+    const filtroBtns = document.querySelectorAll('.filtro-btn');
+    filtroBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        filtroBtns.forEach(b => b.classList.remove('ativo'));
+        btn.classList.add('ativo');
+        // Aqui você adicionaria a lógica para filtrar os produtos
+      });
+    });
+
+    // Fechar carrinho ao clicar no overlay
+    overlay.addEventListener('click', toggleCarrinho);
+  </script>
+</body>
+</html>
